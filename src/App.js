@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
+import { APIContextProvider } from "./components/fetcher";
+import Games from "./components/byalternative/game/game_tokens";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <APIContextProvider>
+      <div className="App">
+        <h1>Welcome to SolanaPrime's SPL Token Analytics Dashboard!</h1>
+        <Games />
+      </div>
+    </APIContextProvider>
   );
 }
-
-export default App;
