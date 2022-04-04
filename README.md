@@ -1,10 +1,6 @@
 # SPL Token Analytics
 React app for a SPL token analytics app for SolanaPrime (https://solanaprime.com/)
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App]
-
 ## Available Scripts
 
 In the project directory, you can run:
