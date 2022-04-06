@@ -26,7 +26,6 @@ export default function App() {
 
       <ALTContextProvider>
         <div className="Games">
-          <h1>Hello Game token community!</h1>
           <Games />
         </div>
       </ALTContextProvider>

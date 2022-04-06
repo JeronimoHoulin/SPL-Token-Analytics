@@ -6,37 +6,20 @@ const MRKTContext = createContext();
 export function MRKTContextProvider({ children }) {
 
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState([]);
 
   useEffect(() => {
 
-
-    async function fetchCategories(){
-      ////////////////////////CATEGORY
-      const { data1 } = await axios.get(
-        `https://api.coingecko.com/api/v3/categories`
-
-      );
-      console.log(data1);
-      setCategories(data1);
-    }
-
-    fetchCategories();
-
-
-    async function fetchCategory(){
-      ////////////////////////CATEGORY
+    async function fetchData() {
       const { data } = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=gaming&order=market_cap_desc&per_page=100&page=1&sparkline=false`
-
+        'https://api.coingecko.com/api/v3/coins/categories'
       );
-      //console.log(data);
-      setCategory(data);
+      console.log(data);
+      setCategories(data);
     }
-    
+
+    fetchData();
 
 
-    fetchCategory();
 
   }, []);
 
@@ -45,7 +28,7 @@ export function MRKTContextProvider({ children }) {
   return (
     <MRKTContext.Provider
       value={{
-        category
+        categories
       }}
     >
       {children}
