@@ -11,8 +11,8 @@ export default function Cat1() {
   return (
     <ul>
       {categories.map(item => (
-        <li>{item.market_cap}</li>
-      ))}
+        <p>{item.name +".\n" + "Mark Cap: " + item.market_cap.toLocaleString('en-US')}</p>
+        ))}
     </ul>
   );
 }
