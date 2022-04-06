@@ -4,15 +4,16 @@ import { useAPI_mrkt } from "../mrkt_fetcher";
 export default function Cat1() {
 
     
-  const { tikkers } = useAPI_mrkt();
+  const { category } = useAPI_mrkt();
 
-  console.log(tikkers);
+  console.log(category);
+
 
   return (
-    <ul>
-      {tikkers.map(item => (
-        <li>{item.ath}</li>
+    <div>
+      {category.map(item => (
+        <p>{item.name +".\n" + "Mark Cap: " + item.market_cap.toLocaleString('en-US')}</p>
       ))}
-    </ul>
+    </div>
   );
 }
