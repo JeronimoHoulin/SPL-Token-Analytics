@@ -12,16 +12,17 @@ export function MRKTContextProvider({ children }) {
 
 
     async function fetchCategories(){
-
-      ////////////////////////CATEGORIES
+      ////////////////////////CATEGORY
       const { data1 } = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/categories`
+        `https://api.coingecko.com/api/v3/categories`
 
       );
       console.log(data1);
       setCategories(data1);
-
     }
+
+    fetchCategories();
+
 
     async function fetchCategory(){
       ////////////////////////CATEGORY
@@ -34,7 +35,6 @@ export function MRKTContextProvider({ children }) {
     }
     
 
-    fetchCategories();
 
     fetchCategory();
 
