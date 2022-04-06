@@ -4,14 +4,14 @@ import { useAPI_mrkt } from "../mrkt_fetcher";
 export default function Cat1() {
 
     
-  const { tikkers } = useAPI_mrkt();
+  const { categories } = useAPI_mrkt();
 
-  console.log(tikkers);
+  console.log(categories);
 
   return (
     <ul>
-      {tikkers.map(item => (
-        <li>{item.ath}</li>
+      {categories.map(item => (
+        <li>{item.market_cap}</li>
       ))}
     </ul>
   );
