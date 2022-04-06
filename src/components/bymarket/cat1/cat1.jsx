@@ -11,6 +11,8 @@ export default function Cat1() {
 
   return (
     <div>
+      <h1>Hello Cat1 token community!</h1>
+
       {category.map(item => (
         <p>{item.name +".\n" + "Mark Cap: " + item.market_cap.toLocaleString('en-US')}</p>
       ))}

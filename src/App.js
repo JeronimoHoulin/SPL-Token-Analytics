@@ -19,7 +19,6 @@ export default function App() {
 
       <MRKTContextProvider>
         <div className="Games">
-          <h1>Hello Cat1 token community!</h1>
           <Cat1 />
         </div>
       </MRKTContextProvider>
