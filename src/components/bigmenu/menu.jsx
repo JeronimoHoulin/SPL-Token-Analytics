@@ -8,60 +8,141 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 export default function Bigmenu() {
-  //const [checkedgame, setCheckedGame] = useState(true)
-  const [checked, setChecked] = React.useState([false, false, false, false]);
-  const [checkedAlt, setCheckedAlt] = React.useState(false);
 
-  //console.log(checked)
-  console.log(checkedAlt)
+  const [selectedCat, setSelectedCat] = React.useState(false);
+
+  const [checkedAlt, setCheckedAlt] = React.useState([false, false, false, false]);
+  const [checkedAlt1, setCheckedAlt1] = React.useState(false);
 
 
-  function handleChange1(event) {
-    setChecked([false, false, false, false]);
-    setCheckedAlt(!checkedAlt);
+  const [checkedMrkt, setCheckedMrkt] = React.useState([false, false, false, false]);
+  const [checkedMrkt1, setCheckedMrkt1] = React.useState(false);
+
+
+  function handleChangeAlt1(event) {
+    if(!checkedMrkt1){
+      setCheckedAlt([false, false, false, false]);
+      setCheckedAlt1(!checkedAlt1);
+    }else{
+      console.log("Uncheck market!")
+      setCheckedMrkt([false, false, false, false]);
+      setCheckedMrkt1(!checkedMrkt1);
+      setCheckedAlt1(!checkedAlt1);
+    }
+
   }
 
-  const handleChange2 = (event) => {
-    if(checkedAlt === true){
-      setChecked([event.target.checked, false, false, false]);
-    }else{console.log("Get Alt data!")}
+  const handleChangeAlt2 = (event) => {
+    if(checkedAlt1 === true){
+      setCheckedAlt([event.target.checked, false, false, false]);
+    }else{console.log("Change to ALT data!")}
   };
-  const handleChange3 = (event) => {
-    if(checkedAlt === true){
-      setChecked([false, event.target.checked, false, false]);
-    }else{console.log("Get Alt data!")}
+  const handleChangeAlt3 = (event) => {
+    if(checkedAlt1 === true){
+      setCheckedAlt([false, event.target.checked, false, false]);
+    }else{console.log("Change to ALT data!")}
 
   };
-  const handleChange4 = (event) => {
-    if(checkedAlt === true){
-      setChecked([false, false, event.target.checked, false]);
-    }else{console.log("Get Alt data!")}
+  const handleChangeAlt4 = (event) => {
+    if(checkedAlt1 === true){
+      setCheckedAlt([false, false, event.target.checked, false]);
+    }else{console.log("Change to ALT data!")}
 
   };
-  const handleChange5 = (event) => {
-    if(checkedAlt === true){
-      setChecked([false, false, false, event.target.checked]);
-    }else{console.log("Get Alt data!")}
+  const handleChangeAlt5 = (event) => {
+    if(checkedAlt1 === true){
+      setCheckedAlt([false, false, false, event.target.checked]);
+    }else{console.log("Change to ALT data!")}
+  };
+
+
+
+
+
+
+  function handleChangeMrkt1(event) {
+    if(!checkedAlt1){
+      setCheckedMrkt([false, false, false, false]);
+      setCheckedMrkt1(!checkedMrkt1);
+    }else{
+      console.log("Uncheck alternative!")
+      setCheckedAlt([false, false, false, false]);
+      setCheckedAlt1(!checkedAlt1);
+      setCheckedMrkt1(!checkedMrkt1);
+    }
+
+  }
+
+  const handleChangeMrkt2 = (event) => {
+    if(checkedMrkt1 === true){
+      setCheckedMrkt([event.target.checked, false, false, false]);
+    }else{console.log("Change to MRLT data!")}
+  };
+  const handleChangeMrkt3 = (event) => {
+    if(checkedMrkt1 === true){
+      setCheckedMrkt([false, event.target.checked, false, false]);
+    }else{console.log("Change to MRKT data!")}
+
+  };
+  const handleChangeMrkt4 = (event) => {
+    if(checkedMrkt1 === true){
+      setCheckedMrkt([false, false, event.target.checked, false]);
+    }else{console.log("Change to MRKT data!")}
+
+  };
+  const handleChangeMrkt5 = (event) => {
+    if(checkedMrkt1 === true){
+      setCheckedMrkt([false, false, false, event.target.checked]);
+    }else{console.log("Change to Mrkt data!")}
 
   };
 
-  const children = (
+
+
+
+
+
+
+
+  const children1 = (
     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
       <FormControlLabel
         label="Defi"
-        control={<Checkbox checked={checked[0]} onChange={handleChange2} />}
+        control={<Checkbox checked={checkedAlt[0]} onChange={handleChangeAlt2} />}
       />
       <FormControlLabel
         label="Gamefi"
-        control={<Checkbox checked={checked[1]} onChange={handleChange3} />}
+        control={<Checkbox checked={checkedAlt[1]} onChange={handleChangeAlt3} />}
       />
       <FormControlLabel
         label="Metaverse"
-        control={<Checkbox checked={checked[2]} onChange={handleChange4} />}
+        control={<Checkbox checked={checkedAlt[2]} onChange={handleChangeAlt4} />}
       />
       <FormControlLabel
         label="Meme"
-        control={<Checkbox checked={checked[3]} onChange={handleChange5} />}
+        control={<Checkbox checked={checkedAlt[3]} onChange={handleChangeAlt5} />}
+      />
+    </Box>
+  );
+
+
+  const children2 = (
+    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+      <FormControlLabel
+        label="GameFi"
+        control={<Checkbox checked={checkedMrkt[0]} onChange={handleChangeMrkt2} />}
+      />
+      <FormControlLabel
+        label="DeFi"
+        control={<Checkbox checked={checkedMrkt[1]} onChange={handleChangeMrkt3} />}
+      />
+      <FormControlLabel
+        label="Cross-Chain"
+        control={<Checkbox checked={checkedMrkt[2]} onChange={handleChangeMrkt4} />}
+      />
+      <FormControlLabel
+        label="Wallets ..."
+        control={<Checkbox checked={checkedMrkt[3]} onChange={handleChangeMrkt5} />}
       />
     </Box>
   );
@@ -74,13 +155,25 @@ export default function Bigmenu() {
         label="Alternative"
         control={
           <Checkbox
-            checked={checkedAlt}
-            onChange={handleChange1}
+            checked={checkedAlt1}
+            onChange={handleChangeAlt1}
           />
         }
       />
 
-      {children}
+      {children1}
+
+      <FormControlLabel
+        label="Market"
+        control={
+          <Checkbox
+            checked={checkedMrkt1}
+            onChange={handleChangeMrkt1}
+          />
+        }
+      />
+
+      {children2}
 
     </FormGroup>
 
