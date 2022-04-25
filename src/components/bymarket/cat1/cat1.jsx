@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { useAPI_mrkt } from "../mrkt_fetcher";
@@ -14,15 +14,21 @@ export default function Cat1() {
 
   async function fetchCategory(){
     ////////////////////////CATEGORY
+    
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=gaming&order=market_cap_desc&per_page=100&page=1&sparkline=false`
 
     );
-    //console.log(data);
+    console.log(data);
     setCategory(data);
   }
 
-  fetchCategory();
+  
+  useEffect(() => {
+
+   fetchCategory();
+
+  }, []);
 
 
 

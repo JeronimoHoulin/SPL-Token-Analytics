@@ -20,7 +20,7 @@ export default function Games() {
       //let matchin = regex_game.some(rx => rx.test(tags));
       //console.log(matchin);
   
-      if(regex_game.some(rx => rx.test(tags_game))===true && token_300[i].extensions ){
+      if(regex_game.some(rx => rx.test(tags_game))===true && token_300[i].extensions){
           
           game_tokens.push({
               ID:i,

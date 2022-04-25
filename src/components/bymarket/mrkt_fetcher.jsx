@@ -13,7 +13,7 @@ export function MRKTContextProvider({ children }) {
       const { data } = await axios.get(
         'https://api.coingecko.com/api/v3/coins/categories'
       );
-      console.log(data);
+      //console.log(data);
       setCategories(data);
     }
 

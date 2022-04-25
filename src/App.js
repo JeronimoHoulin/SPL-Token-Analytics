@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 
+import Bigmenu from "./components/bigmenu/menu";
+
 import { ALTContextProvider } from "./components/byalternative/alt_fetcher";
 import Games from "./components/byalternative/game/game_tokens";
 
@@ -15,7 +17,9 @@ export default function App() {
 
     <div className="App">
 
-      <h1>Welcome to SolanaPrime's SPL Token Analytics Dashboard!</h1>
+      <Bigmenu />
+
+      <h1 className="header1">Welcome to SolanaPrime's SPL Token Analytics Dashboard!</h1>
 
       <MRKTContextProvider>
         <div className="Games">
