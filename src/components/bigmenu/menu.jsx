@@ -8,17 +8,15 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 export default function Bigmenu() {
-
-  const [selectedCat, setSelectedCat] = React.useState(false);
-
+// checked options in Alternative
   const [checkedAlt, setCheckedAlt] = React.useState([false, false, false, false]);
   const [checkedAlt1, setCheckedAlt1] = React.useState(false);
 
-
+// checked options in Market
   const [checkedMrkt, setCheckedMrkt] = React.useState([false, false, false, false]);
   const [checkedMrkt1, setCheckedMrkt1] = React.useState(false);
 
-
+//Alternative parent checkbox
   function handleChangeAlt1(event) {
     if(!checkedMrkt1){
       setCheckedAlt([false, false, false, false]);
@@ -31,7 +29,7 @@ export default function Bigmenu() {
     }
 
   }
-
+//Alternative sub checks
   const handleChangeAlt2 = (event) => {
     if(checkedAlt1 === true){
       setCheckedAlt([event.target.checked, false, false, false]);
@@ -59,7 +57,7 @@ export default function Bigmenu() {
 
 
 
-
+//Market parent checkbox
   function handleChangeMrkt1(event) {
     if(!checkedAlt1){
       setCheckedMrkt([false, false, false, false]);
@@ -72,7 +70,7 @@ export default function Bigmenu() {
     }
 
   }
-
+//Market sub checks
   const handleChangeMrkt2 = (event) => {
     if(checkedMrkt1 === true){
       setCheckedMrkt([event.target.checked, false, false, false]);
@@ -103,7 +101,7 @@ export default function Bigmenu() {
 
 
 
-
+//Alternative checkboxes 
   const children1 = (
     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
       <FormControlLabel
@@ -125,7 +123,7 @@ export default function Bigmenu() {
     </Box>
   );
 
-
+//Market checkboxes 
   const children2 = (
     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
       <FormControlLabel
