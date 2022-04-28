@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useContext, useState, useEffect, createContext } from "react";
 import { fallDown as Menu } from 'react-burger-menu';
 import './bigmenu.css'
 
@@ -7,9 +7,10 @@ import Box from '@material-ui/core/Box'
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-export default function Bigmenu() {
 
-  const [selectedCat, setSelectedCat] = React.useState(false);
+const MENUContext = createContext();
+
+export function Bigmenu({children}) {
 
   const [checkedAlt, setCheckedAlt] = React.useState([false, false, false, false]);
   const [checkedAlt1, setCheckedAlt1] = React.useState(false);
@@ -103,7 +104,6 @@ export default function Bigmenu() {
 
 
 
-
   const children1 = (
     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
       <FormControlLabel
@@ -148,35 +148,61 @@ export default function Bigmenu() {
   );
 
   return (
-    <Menu>
+    <div>
+      <Menu>
 
-    <FormGroup>
-    <FormControlLabel
-        label="Alternative"
-        control={
-          <Checkbox
-            checked={checkedAlt1}
-            onChange={handleChangeAlt1}
-          />
-        }
-      />
-
-      {children1}
-
+      <FormGroup>
       <FormControlLabel
-        label="Market"
-        control={
-          <Checkbox
-            checked={checkedMrkt1}
-            onChange={handleChangeMrkt1}
-          />
-        }
-      />
+          label="Alternative"
+          control={
+            <Checkbox
+              checked={checkedAlt1}
+              onChange={handleChangeAlt1}
+            />
+          }
+        />
 
-      {children2}
+        {children1}
 
-    </FormGroup>
+        <FormControlLabel
+          label="Market"
+          control={
+            <Checkbox
+              checked={checkedMrkt1}
+              onChange={handleChangeMrkt1}
+            />
+          }
+        />
 
-    </Menu>
+        {children2}
+
+      </FormGroup>
+
+      </Menu>
+
+      
+      <MENUContext.Provider
+      value={{
+        checkedAlt1,
+        checkedAlt,
+        checkedMrkt1,
+        checkedMrkt
+      }}
+      >
+
+      {children}
+      </MENUContext.Provider>
+
+
+    </div>
   );
 };
+
+
+export function useAPI_menu() {
+  const context = useContext(MENUContext);
+  if (context === undefined) {
+    throw new Error("Context must be used within a Provider");
+  }
+  return context;
+}
