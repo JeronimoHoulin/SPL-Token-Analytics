@@ -102,57 +102,117 @@ export function Bigmenu({children}) {
 
 
 
+  let categsAlt = ""
+  if(checkedAlt1 === true){
+    categsAlt = (
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+        <p className="guidescss">Choose a category:</p>
+        <FormControlLabel
+          label="Defi"
+          control={<Checkbox checked={checkedAlt[0]} onChange={handleChangeAlt2} />}
+        />
+        <FormControlLabel
+          label="Gamefi"
+          control={<Checkbox checked={checkedAlt[1]} onChange={handleChangeAlt3} />}
+        />
+        <FormControlLabel
+          label="Metaverse"
+          control={<Checkbox checked={checkedAlt[2]} onChange={handleChangeAlt4} />}
+        />
+        <FormControlLabel
+          label="Meme"
+          control={<Checkbox checked={checkedAlt[3]} onChange={handleChangeAlt5} />}
+        />
+      </Box>
+    );
+  }
 
+  let categsMrkt = ""
+  if(checkedMrkt1 === true){
+     categsMrkt = (
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+        <p className="guidescss">Choose a category:</p>
+        <FormControlLabel
+          label="GameFi"
+          control={<Checkbox checked={checkedMrkt[0]} onChange={handleChangeMrkt2} />}
+        />
+        <FormControlLabel
+          label="DeFi"
+          control={<Checkbox checked={checkedMrkt[1]} onChange={handleChangeMrkt3} />}
+        />
+        <FormControlLabel
+          label="Cross-Chain"
+          control={<Checkbox checked={checkedMrkt[2]} onChange={handleChangeMrkt4} />}
+        />
+        <FormControlLabel
+          label="Wallets ..."
+          control={<Checkbox checked={checkedMrkt[3]} onChange={handleChangeMrkt5} />}
+        />
+      </Box>
+    );
+  }
 
-  const children1 = (
-    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-      <FormControlLabel
-        label="Defi"
-        control={<Checkbox checked={checkedAlt[0]} onChange={handleChangeAlt2} />}
-      />
-      <FormControlLabel
-        label="Gamefi"
-        control={<Checkbox checked={checkedAlt[1]} onChange={handleChangeAlt3} />}
-      />
-      <FormControlLabel
-        label="Metaverse"
-        control={<Checkbox checked={checkedAlt[2]} onChange={handleChangeAlt4} />}
-      />
-      <FormControlLabel
-        label="Meme"
-        control={<Checkbox checked={checkedAlt[3]} onChange={handleChangeAlt5} />}
-      />
-    </Box>
-  );
+  console.log(checkedMrkt)
 
+  let filtersAlt = ""
+  //DEFI
+  if(checkedAlt.some((value)=> { return (value === true); })){
+    filtersAlt = (
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+        <p className="guidescss">Choose a filter:</p>
+        <FormControlLabel
+          label="Twitter followers"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+        <FormControlLabel
+          label="Discord members"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+        <FormControlLabel
+          label="Community interactions"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+        <FormControlLabel
+          label="Hype (SolanaPrime metric)"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+      </Box>
+    );
+  }
 
-  const children2 = (
-    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-      <FormControlLabel
-        label="GameFi"
-        control={<Checkbox checked={checkedMrkt[0]} onChange={handleChangeMrkt2} />}
-      />
-      <FormControlLabel
-        label="DeFi"
-        control={<Checkbox checked={checkedMrkt[1]} onChange={handleChangeMrkt3} />}
-      />
-      <FormControlLabel
-        label="Cross-Chain"
-        control={<Checkbox checked={checkedMrkt[2]} onChange={handleChangeMrkt4} />}
-      />
-      <FormControlLabel
-        label="Wallets ..."
-        control={<Checkbox checked={checkedMrkt[3]} onChange={handleChangeMrkt5} />}
-      />
-    </Box>
-  );
+  let filtersMrkt = ""
+  //DEFI
+  if(checkedMrkt.some((value)=> { return (value === true); })){
+    filtersMrkt = (
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+        <p className="guidescss">Choose a filter:</p>
+        <FormControlLabel
+          label="Market cap"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+        <FormControlLabel
+          label="Volume"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+        <FormControlLabel
+          label="Price (7d)"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+        <FormControlLabel
+          label="price (12hrs)"
+          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+        />
+      </Box>
+    );
+  }
 
   return (
     <div>
       <Menu>
 
-      <FormGroup>
-      <FormControlLabel
+      <FormGroup className="Anashi">
+
+        <FormControlLabel
           label="Alternative"
           control={
             <Checkbox
@@ -161,8 +221,13 @@ export function Bigmenu({children}) {
             />
           }
         />
+        <div className="categsAlt">
+        {categsAlt}
+        </div>
+        <div className="filtersAlt">
+        {filtersAlt}
+        </div>
 
-        {children1}
 
         <FormControlLabel
           label="Market"
@@ -174,7 +239,12 @@ export function Bigmenu({children}) {
           }
         />
 
-        {children2}
+        <div className="categsMrkt">
+        {categsMrkt}
+        </div>
+        <div className="filtersMrkt">
+        {filtersMrkt}
+        </div>
 
       </FormGroup>
 

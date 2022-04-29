@@ -62,10 +62,36 @@
   
   /* Individual item */
   .bm-item {
-    display: inline-block;
+    text-align: left;
   }
   
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
   }
+
+  /* moving to the side the sub checkboxes */
+.categsAlt{
+  margin-left: 10px;
+}
+.categsMrkt{
+  margin-left: 10px;
+}
+.filtersAlt{
+  margin-left: 20px;
+}
+.filtersMrkt{
+  margin-left: 20px;
+}
+
+
+
+  /* styling guides */
+
+.guidescss{
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}

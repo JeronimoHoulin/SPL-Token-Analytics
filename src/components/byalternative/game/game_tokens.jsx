@@ -13,11 +13,11 @@ export default function Games() {
 
   const { tokens } = useAPI_alt();
 
-  console.log(tokens);
-  console.log(checkedAlt1);
-  console.log(checkedAlt);
-  console.log(checkedMrkt1);
-  console.log(checkedMrkt);
+  //console.log(tokens);
+  //console.log(checkedAlt1);
+  //console.log(checkedAlt);
+  //console.log(checkedMrkt1);
+  //console.log(checkedMrkt);
 
 
 
