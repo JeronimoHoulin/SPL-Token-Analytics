@@ -7,100 +7,184 @@ import Box from '@material-ui/core/Box'
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-<<<<<<< HEAD
-export default function Bigmenu() {
-// checked options in Alternative
-=======
 
 const MENUContext = createContext();
 
 export function Bigmenu({children}) {
 
->>>>>>> dev
-  const [checkedAlt, setCheckedAlt] = React.useState([false, false, false, false]);
-  const [checkedAlt1, setCheckedAlt1] = React.useState(false);
+  // checked ALTERNATIVE
+  const [checkedAlt, setCheckedAlt] = React.useState(false);
+  // checked categories in Alternative
+  const [checkedAltCategories, setCheckedAltCategories] = React.useState([false, false, false, false]);
+  // checked filters in Alternative
+  const [checkedAltFilters, setCheckedAltFilters] = React.useState([false, false, false, false]);
 
-// checked options in Market
-  const [checkedMrkt, setCheckedMrkt] = React.useState([false, false, false, false]);
-  const [checkedMrkt1, setCheckedMrkt1] = React.useState(false);
 
-//Alternative parent checkbox
-  function handleChangeAlt1(event) {
-    if(!checkedMrkt1){
-      setCheckedAlt([false, false, false, false]);
-      setCheckedAlt1(!checkedAlt1);
+
+
+  // checked MARKET
+  const [checkedMrkt, setCheckedMrkt] = React.useState(false);
+  // checked categories in Market
+  const [checkedMrktCategories, setCheckedMrktCategories] = React.useState([false, false, false, false]);
+  // checked filters in Market
+  const [checkedMrktFilters, setCheckedMrktFilters] = React.useState([false, false, false, false]);
+
+
+
+
+
+
+  //Alternative parent checkbox
+  function handleChangeAlt(event) {
+    if(!checkedMrkt){
+      setCheckedAltCategories([false, false, false, false]);
+      setCheckedAlt(!checkedAlt);
+      console.log("You checked: ALTERNATIVE!")
     }else{
       console.log("Uncheck market!")
-      setCheckedMrkt([false, false, false, false]);
-      setCheckedMrkt1(!checkedMrkt1);
-      setCheckedAlt1(!checkedAlt1);
+      setCheckedMrktCategories([false, false, false, false]);
+      setCheckedMrkt(!checkedMrkt);
+      setCheckedAlt(!checkedAlt);
     }
 
   }
-//Alternative sub checks
-  const handleChangeAlt2 = (event) => {
-    if(checkedAlt1 === true){
-      setCheckedAlt([event.target.checked, false, false, false]);
-    }else{console.log("Change to ALT data!")}
+  //Alternative Categs checked
+  const handleChangeAltCat0 = (event) => {
+    if(checkedAlt === true){
+      setCheckedAltCategories([event.target.checked, false, false, false]);
+      console.log("You checked: CATEG DEFI!")
+    }else{console.log("Change to ALT categ!")}
   };
-  const handleChangeAlt3 = (event) => {
-    if(checkedAlt1 === true){
-      setCheckedAlt([false, event.target.checked, false, false]);
-    }else{console.log("Change to ALT data!")}
-
-  };
-  const handleChangeAlt4 = (event) => {
-    if(checkedAlt1 === true){
-      setCheckedAlt([false, false, event.target.checked, false]);
-    }else{console.log("Change to ALT data!")}
+  const handleChangeAltCat1 = (event) => {
+    if(checkedAlt === true){
+      setCheckedAltCategories([false, event.target.checked, false, false]);
+      console.log("You checked: CATEG Gamefi!")
+    }else{console.log("Change to ALT categ!")}
 
   };
-  const handleChangeAlt5 = (event) => {
-    if(checkedAlt1 === true){
-      setCheckedAlt([false, false, false, event.target.checked]);
-    }else{console.log("Change to ALT data!")}
+  const handleChangeAltCat2 = (event) => {
+    if(checkedAlt === true){
+      setCheckedAltCategories([false, false, event.target.checked, false]);
+      console.log("You checked: CATEG META!")
+    }else{console.log("Change to ALT categ!")}
+
+  };
+  const handleChangeAltCat3 = (event) => {
+    if(checkedAlt === true){
+      setCheckedAltCategories([false, false, false, event.target.checked]);
+      console.log("You checked: CATEG MEME!")
+    }else{console.log("Change to ALT categ!")}
   };
 
 
 
+    //Alternative Filters checked
+    const handleChangeAltFilt0 = (event) => {
+      if(checkedAlt === true){
+        setCheckedAltFilters([event.target.checked, false, false, false]);
+        console.log("You checked: FILTER TWITTER!")
+      }else{console.log("Change to ALT filter!")}
+    };
+    const handleChangeAltFilt1 = (event) => {
+      if(checkedAlt === true){
+        setCheckedAltFilters([false, event.target.checked, false, false]);
+        console.log("You checked: FILTER DICORD!")
+      }else{console.log("Change to ALT filter!")}
+  
+    };
+    const handleChangeAltFilt2 = (event) => {
+      if(checkedAlt === true){
+        setCheckedAltFilters([false, false, event.target.checked, false]);
+        console.log("You checked: FILTER COMMUNITY!")
+      }else{console.log("Change to ALT filter!")}
+  
+    };
+    const handleChangeAltFilt3 = (event) => {
+      if(checkedAlt === true){
+        setCheckedAltFilters([false, false, false, event.target.checked]);
+        console.log("You checked: FILTER HYPE!")
+      }else{console.log("Change to ALT filter!")}
+    };
 
 
-//Market parent checkbox
-  function handleChangeMrkt1(event) {
-    if(!checkedAlt1){
-      setCheckedMrkt([false, false, false, false]);
-      setCheckedMrkt1(!checkedMrkt1);
+
+
+
+
+
+
+
+
+  //Market parent checkbox
+  function handleChangeMrkt(event) {
+    if(!checkedAlt){
+      setCheckedMrktCategories([false, false, false, false]);
+      setCheckedMrkt(!checkedMrkt);
+      console.log("You checked: MARKET!")
     }else{
       console.log("Uncheck alternative!")
-      setCheckedAlt([false, false, false, false]);
-      setCheckedAlt1(!checkedAlt1);
-      setCheckedMrkt1(!checkedMrkt1);
+      setCheckedAltCategories([false, false, false, false]);
+      setCheckedAlt(!checkedAlt);
+      setCheckedMrkt(!checkedMrkt);
     }
 
   }
-//Market sub checks
-  const handleChangeMrkt2 = (event) => {
-    if(checkedMrkt1 === true){
-      setCheckedMrkt([event.target.checked, false, false, false]);
+  //Market Categs checked
+  const handleChangeMrktCat0 = (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktCategories([event.target.checked, false, false, false]);
+      console.log("You checked: CATEG GAMEFI!")
     }else{console.log("Change to MRLT data!")}
   };
-  const handleChangeMrkt3 = (event) => {
-    if(checkedMrkt1 === true){
-      setCheckedMrkt([false, event.target.checked, false, false]);
+  const handleChangeMrktCat1 = (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktCategories([false, event.target.checked, false, false]);
+      console.log("You checked: CATEG DEFI!")
     }else{console.log("Change to MRKT data!")}
 
   };
-  const handleChangeMrkt4 = (event) => {
-    if(checkedMrkt1 === true){
-      setCheckedMrkt([false, false, event.target.checked, false]);
+  const handleChangeMrktCat2 = (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktCategories([false, false, event.target.checked, false]);
+      console.log("You checked: CATEG CROSSCHAIN!")
     }else{console.log("Change to MRKT data!")}
 
   };
-  const handleChangeMrkt5 = (event) => {
-    if(checkedMrkt1 === true){
-      setCheckedMrkt([false, false, false, event.target.checked]);
+  const handleChangeMrktCat3 = (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktCategories([false, false, false, event.target.checked]);
+      console.log("You checked: CATEG WALLETS!")
     }else{console.log("Change to Mrkt data!")}
 
+  };
+
+
+  //Market Filters checked
+  const handleChangeMrktFilt0 = (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktFilters([event.target.checked, false, false, false]);
+      console.log("You checked: FILTER MARKETCAP!")
+    }else{console.log("Change to ALT filter!")}
+  };
+  const handleChangeMrktFilt1= (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktFilters([false, event.target.checked, false, false]);
+      console.log("You checked: FILTER VOLUME!")
+    }else{console.log("Change to ALT filter!")}
+
+  };
+  const handleChangeMrktFilt2 = (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktFilters([false, false, event.target.checked, false]);
+      console.log("You checked: FILTER PRICE7D!")
+    }else{console.log("Change to ALT filter!")}
+
+  };
+  const handleChangeMrktFilt3 = (event) => {
+    if(checkedMrkt === true){
+      setCheckedMrktFilters([false, false, false, event.target.checked]);
+            console.log("You checked: FILTER PRICE12HR!")
+    }else{console.log("Change to ALT filter!")}
   };
 
 
@@ -108,123 +192,76 @@ export function Bigmenu({children}) {
 
 
   let categsAlt = ""
-  if(checkedAlt1 === true){
+  if(checkedAlt === true){
     categsAlt = (
       <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <p className="guidescss">Choose a category:</p>
         <FormControlLabel
           label="Defi"
-          control={<Checkbox checked={checkedAlt[0]} onChange={handleChangeAlt2} />}
+          control={<Checkbox checked={checkedAltCategories[0]} onChange={handleChangeAltCat0} />}
         />
         <FormControlLabel
           label="Gamefi"
-          control={<Checkbox checked={checkedAlt[1]} onChange={handleChangeAlt3} />}
+          control={<Checkbox checked={checkedAltCategories[1]} onChange={handleChangeAltCat1} />}
         />
         <FormControlLabel
           label="Metaverse"
-          control={<Checkbox checked={checkedAlt[2]} onChange={handleChangeAlt4} />}
+          control={<Checkbox checked={checkedAltCategories[2]} onChange={handleChangeAltCat2} />}
         />
         <FormControlLabel
           label="Meme"
-          control={<Checkbox checked={checkedAlt[3]} onChange={handleChangeAlt5} />}
+          control={<Checkbox checked={checkedAltCategories[3]} onChange={handleChangeAltCat3} />}
         />
       </Box>
     );
   }
 
   let categsMrkt = ""
-  if(checkedMrkt1 === true){
+  if(checkedMrkt === true){
      categsMrkt = (
       <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <p className="guidescss">Choose a category:</p>
         <FormControlLabel
           label="GameFi"
-          control={<Checkbox checked={checkedMrkt[0]} onChange={handleChangeMrkt2} />}
+          control={<Checkbox checked={checkedMrktCategories[0]} onChange={handleChangeMrktCat0} />}
         />
         <FormControlLabel
           label="DeFi"
-          control={<Checkbox checked={checkedMrkt[1]} onChange={handleChangeMrkt3} />}
+          control={<Checkbox checked={checkedMrktCategories[1]} onChange={handleChangeMrktCat1} />}
         />
         <FormControlLabel
           label="Cross-Chain"
-          control={<Checkbox checked={checkedMrkt[2]} onChange={handleChangeMrkt4} />}
+          control={<Checkbox checked={checkedMrktCategories[2]} onChange={handleChangeMrktCat2} />}
         />
         <FormControlLabel
           label="Wallets ..."
-          control={<Checkbox checked={checkedMrkt[3]} onChange={handleChangeMrkt5} />}
+          control={<Checkbox checked={checkedMrktCategories[3]} onChange={handleChangeMrktCat3} />}
         />
       </Box>
     );
   }
 
-<<<<<<< HEAD
-//Alternative checkboxes 
-  const children1 = (
-    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-      <FormControlLabel
-        label="Defi"
-        control={<Checkbox checked={checkedAlt[0]} onChange={handleChangeAlt2} />}
-      />
-      <FormControlLabel
-        label="Gamefi"
-        control={<Checkbox checked={checkedAlt[1]} onChange={handleChangeAlt3} />}
-      />
-      <FormControlLabel
-        label="Metaverse"
-        control={<Checkbox checked={checkedAlt[2]} onChange={handleChangeAlt4} />}
-      />
-      <FormControlLabel
-        label="Meme"
-        control={<Checkbox checked={checkedAlt[3]} onChange={handleChangeAlt5} />}
-      />
-    </Box>
-  );
-
-//Market checkboxes 
-  const children2 = (
-    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-      <FormControlLabel
-        label="GameFi"
-        control={<Checkbox checked={checkedMrkt[0]} onChange={handleChangeMrkt2} />}
-      />
-      <FormControlLabel
-        label="DeFi"
-        control={<Checkbox checked={checkedMrkt[1]} onChange={handleChangeMrkt3} />}
-      />
-      <FormControlLabel
-        label="Cross-Chain"
-        control={<Checkbox checked={checkedMrkt[2]} onChange={handleChangeMrkt4} />}
-      />
-      <FormControlLabel
-        label="Wallets ..."
-        control={<Checkbox checked={checkedMrkt[3]} onChange={handleChangeMrkt5} />}
-      />
-    </Box>
-  );
-=======
-  console.log(checkedMrkt)
-
   let filtersAlt = ""
   //DEFI
-  if(checkedAlt.some((value)=> { return (value === true); })){
+  if(checkedAltCategories.some((value)=> { return (value === true); })){
     filtersAlt = (
       <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <p className="guidescss">Choose a filter:</p>
         <FormControlLabel
           label="Twitter followers"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedAltFilters[0]} onChange={handleChangeAltFilt0} />}
         />
         <FormControlLabel
           label="Discord members"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedAltFilters[1]} onChange={handleChangeAltFilt1} />}
         />
         <FormControlLabel
           label="Community interactions"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedAltFilters[2]} onChange={handleChangeAltFilt2} />}
         />
         <FormControlLabel
           label="Hype (SolanaPrime metric)"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedAltFilters[3]} onChange={handleChangeAltFilt3} />}
         />
       </Box>
     );
@@ -232,30 +269,29 @@ export function Bigmenu({children}) {
 
   let filtersMrkt = ""
   //DEFI
-  if(checkedMrkt.some((value)=> { return (value === true); })){
+  if(checkedMrktCategories.some((value)=> { return (value === true); })){
     filtersMrkt = (
       <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <p className="guidescss">Choose a filter:</p>
         <FormControlLabel
           label="Market cap"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedMrktFilters[0]} onChange={handleChangeMrktFilt0} />}
         />
         <FormControlLabel
           label="Volume"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedMrktFilters[1]} onChange={handleChangeMrktFilt1} />}
         />
         <FormControlLabel
           label="Price (7d)"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedMrktFilters[2]} onChange={handleChangeMrktFilt2} />}
         />
         <FormControlLabel
           label="price (12hrs)"
-          control={<Checkbox checked={console.log("ashji")} onChange={console.log("ashji")} />}
+          control={<Checkbox checked={checkedMrktFilters[3]} onChange={handleChangeMrktFilt3} />}
         />
       </Box>
     );
   }
->>>>>>> dev
 
   return (
     <div>
@@ -267,8 +303,8 @@ export function Bigmenu({children}) {
           label="Alternative"
           control={
             <Checkbox
-              checked={checkedAlt1}
-              onChange={handleChangeAlt1}
+              checked={checkedAlt}
+              onChange={handleChangeAlt}
             />
           }
         />
@@ -284,8 +320,8 @@ export function Bigmenu({children}) {
           label="Market"
           control={
             <Checkbox
-              checked={checkedMrkt1}
-              onChange={handleChangeMrkt1}
+              checked={checkedMrkt}
+              onChange={handleChangeMrkt}
             />
           }
         />
@@ -304,10 +340,10 @@ export function Bigmenu({children}) {
       
       <MENUContext.Provider
       value={{
-        checkedAlt1,
         checkedAlt,
-        checkedMrkt1,
-        checkedMrkt
+        checkedAltCategories,
+        checkedMrkt,
+        checkedMrktCategories
       }}
       >
 
