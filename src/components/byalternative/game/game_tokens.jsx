@@ -1,12 +1,26 @@
 import React from "react";
 import { useAPI_alt } from "../alt_fetcher";
+import { useAPI_menu } from "../../bigmenu/menu";
 
 export default function Games() {
 
+  const { 
+    checkedAlt1,
+    checkedAlt,
+    checkedMrkt1,
+    checkedMrkt 
+  } = useAPI_menu();
 
   const { tokens } = useAPI_alt();
 
-  console.log(tokens);
+  //console.log(tokens);
+  //console.log(checkedAlt1);
+  //console.log(checkedAlt);
+  //console.log(checkedMrkt1);
+  //console.log(checkedMrkt);
+
+
+
 
   let game_tokens = []
 
