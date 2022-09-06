@@ -15,7 +15,7 @@ function Landing(props) {
         <div className="Landing">
         {
             !show 
-            &&<h1>Welcome to SolanaPrime's SPL Token Analytics Dashboard!</h1>
+            &&<h1>Welcome to our SPL Token Analytics Dashboard!</h1>
             &&<button onClick={() => setShow(!show)} >Launch App</button>
 
         }

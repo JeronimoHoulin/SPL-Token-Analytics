@@ -282,11 +282,11 @@ export function Bigmenu({children}) {
           control={<Checkbox checked={checkedMrktFilters[1]} onChange={handleChangeMrktFilt1} />}
         />
         <FormControlLabel
-          label="Price (7d)"
+          label="Price (24hr)"
           control={<Checkbox checked={checkedMrktFilters[2]} onChange={handleChangeMrktFilt2} />}
         />
         <FormControlLabel
-          label="price (12hrs)"
+          label="FD Valuation"
           control={<Checkbox checked={checkedMrktFilters[3]} onChange={handleChangeMrktFilt3} />}
         />
       </Box>
@@ -342,8 +342,10 @@ export function Bigmenu({children}) {
       value={{
         checkedAlt,
         checkedAltCategories,
+        checkedAltFilters,
         checkedMrkt,
-        checkedMrktCategories
+        checkedMrktCategories,
+        checkedMrktFilters
       }}
       >
 
